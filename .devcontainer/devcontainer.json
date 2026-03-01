@@ -1,0 +1,8 @@
+{
+    "name": "2 - Consulta SQL",
+    "image": "mcr.microsoft.com/devcontainers/python:3.11",
+    "features": {
+        "ghcr.io/devcontainers/features/sqlite3:1": {}
+    },
+    "postCreateCommand": "python3 setup_project.py"
+}
