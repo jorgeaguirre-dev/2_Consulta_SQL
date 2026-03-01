@@ -4,5 +4,5 @@
     "features": {
         "ghcr.io/devcontainers/features/sqlite3:1": {}
     },
-    "postCreateCommand": "python3 setup_project.py"
+    "postCreateCommand": "python3 seed/setup_project.py"
 }
