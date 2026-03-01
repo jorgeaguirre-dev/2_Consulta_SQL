@@ -2,9 +2,9 @@ import os
 import sqlite3
 
 
-def generar_seed_db():
+def generar_data_db():
     # Creación de dB y tablas, e inserción de datos de prueba
-    db_path = 'data/seed.db'
+    db_path = 'data/data.db'
 
     if os.path.exists(db_path):
         os.remove(db_path)
@@ -76,4 +76,4 @@ def generar_seed_db():
     print(f"✔ Base de datos '{db_path}' generada con datos de prueba.")
 
 if __name__ == "__main__":
-    generar_seed_db()
+    generar_data_db()
