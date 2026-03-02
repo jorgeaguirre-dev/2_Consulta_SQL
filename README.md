@@ -9,6 +9,15 @@ La consulta SQL debe dar el nombre de cada persona junto con el nombre del grupo
 ### Modelo Entidad Relación
 ![DER](img/diagrama.png)
 
+### Lógica de Resolución
+Para resolver este problema, aplicamos la Teoría de Conjuntos mediante una "Diferencia de Conjuntos" y una validación de "Universalidad".
+
+La lógica se divide en dos filtros críticos:
+
+- Filtro de Exclusión: La persona A no debe existir en la tabla Miembro para el grupo G.
+
+- Filtro de Totalidad: La cantidad de amigos de A que están en G debe ser igual al total de amigos que tiene A.
+
 ## Ejecución Rápida
 - Al tener Python instalado, es posible clonar y ver el resultado del proyecto con un solo comando:
 
