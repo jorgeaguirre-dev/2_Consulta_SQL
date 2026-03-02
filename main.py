@@ -1,7 +1,7 @@
 import sqlite3
 import os
 
-def ejecutar_script_sql(cursor, ruta_archivo):
+def esquema_sql(cursor, ruta_archivo):
     """Lee un archivo .sql y lo ejecuta en el cursor dado."""
     if os.path.exists(ruta_archivo):
         with open(ruta_archivo, 'r', encoding='utf-8') as f:
@@ -39,12 +39,12 @@ def poblar_datos(cursor):
         ('Ana', 'Pythonistas'), ('Elena', 'Pythonistas'), ('Juan', 'Pythonistas')
     ]
     cursor.executemany('INSERT INTO Miembro VALUES (?,?)', membresias)
-    print("✔ Datos de prueba insertados.")
+    print("✔ Datos de prueba insertados.\n")
 
 def main():
     db_path = 'data/data.db'
     
-    # Resetear DB para seed limpio
+    # Borrar DB para seed limpio
     if os.path.exists(db_path):
         os.remove(db_path)
 
@@ -53,7 +53,7 @@ def main():
 
     try:
         # 1. Crear esquema desde archivo externo
-        ejecutar_script_sql(cursor, 'sql/schema.sql')
+        esquema_sql(cursor, 'sql/schema.sql')
 
         # 2. Insertar datos
         poblar_datos(cursor)
@@ -63,11 +63,20 @@ def main():
         with open('sql/consulta.sql', 'r', encoding='utf-8') as f:
             query = f.read()
             resultados = cursor.execute(query).fetchall()
+            columnas = [descripcion[0] for descripcion in cursor.description]
             
             if not resultados:
-                print("No se encontraron coincidencias.")
-            for row in resultados:
-                print(f"Persona: {row[0]} | Grupo Sugerido: {row[1]}")
+                print("\n[!] No se encontraron coincidencias para los criterios establecidos.")
+            else:
+                # Configuración de la "Grilla"
+                width_p = 20
+                width_g = 25
+                
+                # Encabezado
+                print(f"| {columnas[0]:<{width_p}} | {columnas[1]:<{width_g}} |")
+                # Filas
+                for row in resultados:
+                    print(f"| {str(row[0]):<{width_p}} | {str(row[1]):<{width_g}} |")
 
     except Exception as e:
         print(f"Ocurrió un error: {e}")
