@@ -25,7 +25,7 @@ La lógica se divide en dos filtros críticos:
 python main.py
 ```
 
-Este script inicializa una base de datos en memoria (o archivo), carga el esquema desarrollado en función del DER, inserta 20 registros de prueba y ejecuta la consulta SQL.
+Este script inicializa una base de datos en memoria (o archivo), carga el esquema desarrollado en función del DER `sql/schema.sql`, inserta 20 registros de prueba y ejecuta la consulta SQL.
 
 - Para probar directamente la consulta SQL contra la DB data.db usar:
 ```Bash
