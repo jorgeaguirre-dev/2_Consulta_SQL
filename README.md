@@ -31,6 +31,7 @@ Este script inicializa una base de datos en memoria (o archivo), carga el esquem
 ```Bash
 sqlite3 data/data.db < sql/consulta.sql
 ```
+La consulta que resuelve ésta situación ya se encuentra cargada en `sql/consulta.sql`
 
 ## Ejemplo de Ejecución y Resultado
 ### Tabla Amigo
@@ -42,6 +43,7 @@ sqlite3 data/data.db < sql/consulta.sql
 ![Miembro](img/miembro.png)
 
 ### Resultado Esperado
+Aquí se observa la consulta en el editor SQL con los comentarios necesarios para aclarar su funcionamiento y debajo el resultado de la ejecución de la misma.
 
 ![Resultado](img/resultado.png)
 
